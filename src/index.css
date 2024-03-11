@@ -35,4 +35,14 @@
         padding-left: 1em;
         color: #F4E783;
     }
+    .comment-card {
+        background-color: #6f6264;
+        border: 2px solid #000000;
+        border-radius: 1em;
+        margin-bottom: 2em;
+        margin-top: 2em;
+        text-align: left;
+        padding-left: 1em;
+        color: antiquewhite;
+    }
 }
