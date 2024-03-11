@@ -1,13 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ArticleCard = ({article}) => {
     return (
         <div className='article-card'>
+            <Link className='link-style' to={`/articles/${article.article_id}`}>
             <p>Title: {article.title}</p>
-            <img className= 'article-img'src={article.article_img_url}/>
+            <img className= 'article-img' src={article.article_img_url}/>
             <p>Author: {article.author}</p>
             <p>Topic: {article.topic}</p>
             <p>Votes: {article.votes}</p>
+            <br></br>
+            <p>Click the article for more info!</p>
+            </Link>
         </div>
     );
 };

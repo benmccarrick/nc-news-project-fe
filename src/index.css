@@ -20,7 +20,19 @@
         margin-top: 2em;
         text-align: left;
         padding-left: 1em;
-        color: rgb(204, 184, 34);
     }
-    
+    .link-style{
+        color: #F4E783;
+        text-decoration: none;
+    }
+    .single-article {
+        background-color: #6c2833;
+        border: 2px solid #F4E783;
+        border-radius: 1em;
+        margin-bottom: 2em;
+        margin-top: 2em;
+        text-align: left;
+        padding-left: 1em;
+        color: #F4E783;
+    }
 }
