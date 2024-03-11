@@ -45,4 +45,7 @@
         padding-left: 1em;
         color: antiquewhite;
     }
+    .loading{
+        text-align: center;
+    }
 }
