@@ -1,0 +1,26 @@
+@media only screen and (min-width: 320px) {
+    .header{
+        text-align: center;
+    }
+    
+    .nav-bar{
+        text-align: center;
+        padding: 5px;
+    }
+    
+    .article-img {
+        height: 50%;
+        width: 50%;
+    }
+    .article-card {
+        background-color: #6c2833;
+        border: 2px solid #F4E783;
+        border-radius: 1em;
+        margin-bottom: 2em;
+        margin-top: 2em;
+        text-align: left;
+        padding-left: 1em;
+        color: rgb(204, 184, 34);
+    }
+    
+}
