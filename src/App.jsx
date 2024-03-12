@@ -4,8 +4,15 @@ import Header from './components/Header'
 import HomePage from './components/HomePage'
 import ArticleList from './components/ArticleList'
 import SingleArticle from './components/SingleArticle'
+import { UsersContext } from './Contexts/UsersContext'
+import { useContext, useEffect } from 'react'
 
-function App() {
+const App = () => {
+  const { setCurrentUsers } = useContext(UsersContext);
+
+  useEffect(() => {
+    setCurrentUsers("grumpy19");
+  }, []);
 
   return (
     <div>
