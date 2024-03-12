@@ -33,7 +33,7 @@ const SingleArticle = () => {
     };
 
     return isLoading ? <Loading/> : (
-        <div>
+        <article>
             <div className='single-article'>
             <h1>Title: {displayedArticle.title}</h1>
             <p>Author: {displayedArticle.author}</p>
@@ -49,7 +49,7 @@ const SingleArticle = () => {
                 <p>Comments:</p>
             <Comments />
             </div>
-        </div>
+        </article>
     );
 };
 
