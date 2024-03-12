@@ -27,3 +27,9 @@ export const patchArticleByArticleId = (articleId, patchBody) => {
     return data.article;
   });
 };
+
+export const postCommentByArticleId = (articleId, newComment) => {
+  return ncNewsApi.post(`/api/articles/${articleId}/comments`, newComment).then(({data}) => {
+    return data.comments;
+  });
+};

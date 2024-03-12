@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getCommentsByArticleId } from '../utils';
 import { useParams } from 'react-router-dom';
 import CommentCard from './CommentCard';
+import CommentAdder from './CommentAdder';
 
 const Comments = () => {
     const [currentComments, setCurrentComments] = useState([]);
@@ -15,6 +16,7 @@ const Comments = () => {
 
     return (
         <div>
+            <CommentAdder setCurrentComments={setCurrentComments} currentComments={currentComments}/>
             {currentComments.map((comment) => {
                 return <CommentCard key={comment.comment_id} comment={comment}/>
             })}
