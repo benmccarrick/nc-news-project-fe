@@ -10,6 +10,7 @@ const ArticleCard = ({article}) => {
             <p>Author: {article.author}</p>
             <p>Topic: {article.topic}</p>
             <p>Votes: {article.votes}</p>
+            <p>Total Comments: {article.comment_count}</p>
             <br></br>
             <p>Click the article for more info!</p>
             </Link>
