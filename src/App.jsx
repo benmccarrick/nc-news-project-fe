@@ -6,6 +6,7 @@ import ArticleList from './components/ArticleList'
 import SingleArticle from './components/SingleArticle'
 import { UsersContext } from './Contexts/UsersContext'
 import { useContext, useEffect } from 'react'
+import TopicsList from './components/TopicsList'
 
 const App = () => {
   const { setCurrentUsers } = useContext(UsersContext);
@@ -21,6 +22,7 @@ const App = () => {
         <Route path = "/" element={<HomePage/>}/>
         <Route path = "/articles" element={<ArticleList/>}/>
         <Route path = "/articles/:article_id" element={<SingleArticle/>}/>
+        <Route path = "/topics" element={<TopicsList/>}/>
       </Routes>
     </div>
   )
