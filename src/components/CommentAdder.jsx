@@ -5,18 +5,13 @@ import { useParams } from "react-router-dom";
 const CommentAdder = ({ setCurrentComments, currentUsers }) => {
   const { article_id } = useParams();
   const [newComment, setNewComment] = useState("");
-  const [usernameInput, setUsernameInput] = useState("");
   const [feedbackMessage, setFeedbackMessage] = useState(null);
   const [loadingPostedComment, setLoadingPostedComment] = useState(false);
-  
-  const handleUsername = (event) => {
-      setUsernameInput(event.target.value);
-    };
     
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoadingPostedComment(true);
-    const postNewComment = { username: usernameInput, body: newComment };
+    const postNewComment = { username: currentUsers, body: newComment };
     postCommentByArticleId(article_id, postNewComment)
       .then((newCommentFromApi) => {
         setNewComment("");
@@ -28,12 +23,14 @@ const CommentAdder = ({ setCurrentComments, currentUsers }) => {
       .then(() => {
         setFeedbackMessage("Comment successfully posted!");
         setLoadingPostedComment(false);
+        setTimeout(() => setFeedbackMessage(null), 2000);
       })
       .catch(() => {
         setFeedbackMessage(
-          "Invalid username"
+          "Something went wrong, comment NOT posted!"
         );
         setLoadingPostedComment(false);
+        setTimeout(() => setFeedbackMessage(null), 2000);
       });
   };
 
@@ -41,14 +38,6 @@ const CommentAdder = ({ setCurrentComments, currentUsers }) => {
     <p>Posting Comment...</p>
   ) : (
     <form className="CommentAdder" onSubmit={handleSubmit}>
-      <label htmlFor="username">Username: </label>
-      <input
-        id="username"
-        type="text"
-        required
-        onChange={handleUsername}
-        value={usernameInput}
-      ></input>
       <label htmlFor="newComment">Add a Comment: </label>
       <input
         id="newComment"
