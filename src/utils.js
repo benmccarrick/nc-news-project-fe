@@ -43,3 +43,9 @@ export const postCommentByArticleId = (articleId, newComment) => {
 export const deleteCommentByCommentId = (commentId) => {
   return ncNewsApi.delete(`/api/comments/${commentId}`);
 };
+
+export const getTopics = () => {
+  return ncNewsApi.get("/api/topics").then(({ data }) => {
+    return data.topics;
+  });
+};
