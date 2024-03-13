@@ -28,6 +28,8 @@ const Comments = () => {
             key={comment.comment_id}
             comment={comment}
             currentUsers={currentUsers}
+            currentComments = {currentComments}
+            setCurrentComments={setCurrentComments}
           />
         );
       })}
