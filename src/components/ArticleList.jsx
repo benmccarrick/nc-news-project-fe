@@ -3,14 +3,17 @@ import { getArticles } from '../utils';
 import ArticleCard from './ArticleCard'
 import Loading from './Loading';
 import { useSearchParams } from 'react-router-dom';
+import ErrorPage from './ErrorPage';
 
 const ArticleList = () => {
     const [currentArticles, setCurrentArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [searchParams, setSearchParams] = useSearchParams();
+    const [err, setErr] = useState(null);
 
     const sortByQuery = searchParams.get('sort_by');
     const orderQuery = searchParams.get('order_by');
+    const topicQuery = searchParams.get('topic');
 
     const setSortBy = (sort_by) => {
         const newParams = new URLSearchParams(searchParams);
@@ -26,11 +29,17 @@ const ArticleList = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        getArticles(sortByQuery, orderQuery).then((allArticles) => {
+        getArticles(topicQuery, sortByQuery, orderQuery).then((allArticles) => {
             setCurrentArticles(allArticles);
             setIsLoading(false);
-        })
-    }, [sortByQuery, orderQuery]);
+        }).catch((err) => {
+            setErr({err});
+        });
+    }, [topicQuery, sortByQuery, orderQuery]);
+
+    if(err) {
+        return <ErrorPage message={'topic does not exist'}/>
+    }
 
     return isLoading ? <Loading/> : (
         <div>
