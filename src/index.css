@@ -1,11 +1,25 @@
 @media only screen and (min-width: 320px) {
+    .home-page{
+        text-align: center;
+        padding: 100px;
+        color: #e8052b;
+    }
     .header{
         text-align: center;
+        color: #e8052b;
     }
     
     .nav-bar{
         text-align: center;
-        padding: 5px;
+        padding: 10px;
+        margin: 10px;
+        border: 2px solid rgb(240, 6, 6);
+        border-radius: 10%;
+    }
+
+    .nav-bar-link{
+        margin: 20px;
+        color: #000000;
     }
     
     .article-img {
