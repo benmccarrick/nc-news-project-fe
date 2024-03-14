@@ -1,12 +1,14 @@
 @media only screen and (min-width: 320px) {
     .home-page{
         text-align: center;
-        padding: 100px;
         color: #e8052b;
     }
     .header{
         text-align: center;
         color: #e8052b;
+    }
+    .welcome-message{
+        padding: 40px;
     }
     
     .nav-bar{
@@ -65,5 +67,14 @@
     .message {
         text-align: center;
         padding: 100px;
+    }
+    .user-img-homepage {
+        height: 50%;
+        width: 50%;
+        padding: 30px;
+    }
+    .select-user{
+        padding: 4%;
+        margin: 10px;
     }
 }
