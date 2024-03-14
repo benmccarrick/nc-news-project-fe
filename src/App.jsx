@@ -8,6 +8,7 @@ import { UsersContext } from './Contexts/UsersContext'
 import { useContext, useEffect } from 'react'
 import TopicsList from './components/TopicsList'
 import ErrorPage from './components/ErrorPage'
+import ArticleAdder from './components/ArticleAdder'
 
 const App = () => {
   const { setCurrentUsers } = useContext(UsersContext);
@@ -23,6 +24,7 @@ const App = () => {
         <Route path = "/" element={<HomePage/>}/>
         <Route path = "/articles" element={<ArticleList/>}/>
         <Route path = "/articles/:article_id" element={<SingleArticle/>}/>
+        <Route path = "/articles/post" element={<ArticleAdder/>}/>
         <Route path = "/topics" element={<TopicsList/>}/>
         <Route path = "*" element={<ErrorPage message={"page does not exist"}/>}/>
       </Routes>
