@@ -63,3 +63,9 @@ export const getUsers = () => {
     return data.users;
   });
 };
+
+export const postArticle = (newArticle) => {
+  return ncNewsApi.post("/api/articles", newArticle).then(({ data }) => {
+    return data.articles;
+  });
+};
