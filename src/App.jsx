@@ -7,6 +7,7 @@ import SingleArticle from './components/SingleArticle'
 import { UsersContext } from './Contexts/UsersContext'
 import { useContext, useEffect } from 'react'
 import TopicsList from './components/TopicsList'
+import ErrorPage from './components/ErrorPage'
 
 const App = () => {
   const { setCurrentUsers } = useContext(UsersContext);
@@ -23,6 +24,7 @@ const App = () => {
         <Route path = "/articles" element={<ArticleList/>}/>
         <Route path = "/articles/:article_id" element={<SingleArticle/>}/>
         <Route path = "/topics" element={<TopicsList/>}/>
+        <Route path = "*" element={<ErrorPage message={"page does not exist"}/>}/>
       </Routes>
     </div>
   )

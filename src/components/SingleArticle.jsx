@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getArticleById, patchArticleByArticleId } from '../utils';
 import Comments from './Comments';
 import Loading from './Loading';
+import ErrorPage from './ErrorPage';
 
 const SingleArticle = () => {
 
@@ -16,7 +17,9 @@ const SingleArticle = () => {
         getArticleById(article_id).then((article) => {
             setDisplayedArticle(article);
             setIsLoading(false);
-        })
+        }).catch((err) => {
+            setErr({err});
+        });
     }, [])
 
     const handleVote = (voteChange) => {
@@ -32,6 +35,10 @@ const SingleArticle = () => {
         });
     };
 
+    if(err) {
+        return <ErrorPage message={'article does not exist'}/>
+    }
+
     return isLoading ? <Loading/> : (
         <article>
             <div className='single-article'>
@@ -44,7 +51,6 @@ const SingleArticle = () => {
             </div>
             <button onClick={() => handleVote(1)}>Up vote</button>
             <button onClick={() => handleVote(-1)}>Down vote</button>
-            {err ? <p>{err}</p> : null}
             <div className='comment-section'>
                 <p>Comments:</p>
             <Comments />

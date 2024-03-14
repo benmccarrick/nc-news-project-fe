@@ -1,16 +1,8 @@
 import React from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const ArticleCard = ({article}) => {
 
-    const [searchParams, setSearchParams] = useSearchParams();
-    const topicQuery = searchParams.get('topic');
-
-    if(topicQuery && article.topic !== topicQuery) {
-        return (
-            null
-        );
-    }
     return (
         <div className='article-card'>
             <Link className='link-style' to={`/articles/${article.article_id}`}>
