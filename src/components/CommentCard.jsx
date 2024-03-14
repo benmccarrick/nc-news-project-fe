@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { deleteCommentByCommentId } from "../utils";
+import { deleteCommentByCommentId, patchCommentByCommentId } from "../utils";
+import { useParams } from "react-router-dom";
 
 const CommentCard = ({ comment, currentUsers, currentComments, setCurrentComments }) => {
   const [feedbackMessage, setFeedbackMessage] = useState(null);
   const [loadingDeletedMessage, setLoadingDeletedMessage] = useState(false);
   const correctUser = comment.author === currentUsers;
+  const [err, setErr] = useState(null);
 
   const deleteComment = (comment_id) => {
     setLoadingDeletedMessage(true);
@@ -25,6 +27,35 @@ const CommentCard = ({ comment, currentUsers, currentComments, setCurrentComment
       });
   };
 
+  const handleVote = (comment_id, voteChange) => {
+    setCurrentComments((currComments) => {
+        const updatedComments = currComments.map((currComment) => {
+          if (currComment.comment_id === comment_id){
+            return {...currComment, votes: currComment.votes + voteChange};
+          }
+          return currComment;
+        });
+        return updatedComments;
+    });
+    setErr(null);
+    patchCommentByCommentId(comment_id, {inc_votes: voteChange}).catch((err) => {
+        setCurrentComments((currComments) => {
+          const updatedComments = currComments.map((currComment) => {
+            if (currComment.comment_id === comment_id){
+              return {...currComment, votes: currComment.votes - voteChange};
+            }
+            return currComment;
+          })
+          return updatedComments;
+        });
+        setErr('Something went wrong, please try again.');
+    });
+};
+
+if(err) {
+  return <ErrorPage message={'comment does not exist'}/>
+}
+
   if(loadingDeletedMessage){
     return <p>Deleting Comment...</p>
   }
@@ -43,6 +74,8 @@ const CommentCard = ({ comment, currentUsers, currentComments, setCurrentComment
         Delete Comment
       </button>
       )}
+      <button onClick={() => handleVote(comment.comment_id, 1)}>Up vote</button>
+      <button onClick={() => handleVote(comment.comment_id, -1)}>Down vote</button>
     </div>
   );
 };
