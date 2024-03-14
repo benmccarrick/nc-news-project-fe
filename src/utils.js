@@ -40,6 +40,14 @@ export const postCommentByArticleId = (articleId, newComment) => {
     });
 };
 
+export const patchCommentByCommentId = (commentId, patchBody) => {
+  return ncNewsApi
+    .patch(`/api/comments/${commentId}`, patchBody)
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
+
 export const deleteCommentByCommentId = (commentId) => {
   return ncNewsApi.delete(`/api/comments/${commentId}`);
 };
