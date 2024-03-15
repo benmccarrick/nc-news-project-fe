@@ -1,14 +1,19 @@
 @media only screen and (min-width: 320px) {
     .home-page{
-        text-align: center;
-        color: #e8052b;
+        text-align: center;    
     }
     .header{
         text-align: center;
         color: #e8052b;
+        text-decoration: underline;
+    }
+    .nc-logo{
+        height: 5%;
+        width: 5%;
     }
     .welcome-message{
         padding: 40px;
+        color: #e8052b;
     }
     
     .nav-bar{
@@ -17,10 +22,11 @@
         margin: 10px;
         border: 2px solid rgb(240, 6, 6);
         border-radius: 10%;
+        min-width: max-content;
     }
 
     .nav-bar-link{
-        margin: 20px;
+        margin: 30px;
         color: #000000;
     }
     
@@ -63,18 +69,125 @@
     }
     .loading{
         text-align: center;
+        color: #e8052b;
     }
     .message {
         text-align: center;
-        padding: 100px;
+        padding: 20px;
     }
     .user-img-homepage {
-        height: 50%;
-        width: 50%;
         padding: 30px;
+        height: 30%;
+        width: 30%;
     }
     .select-user{
-        padding: 4%;
+        padding: 1%;
         margin: 10px;
+    }
+    .up-vote{
+        padding: 5px;
+        margin: 5px;
+        margin-bottom: 15px;
+    }
+    .down-vote{
+        padding: 5px;
+        margin: 5px;
+        margin-bottom: 15px;
+    }
+    .delete-comment-button{
+        padding: 5px;
+        margin: 5px;
+        margin-bottom: 15px;
+    }
+    .post-comment-button{
+        padding: 5px;
+        margin: 5px;
+        margin-top: 10px;
+    }
+    .add-a-comment {
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+    .comment-box{
+        padding: 5px;
+        margin: 5px;
+        margin-top: 10px;
+        height: 40px;
+        width: 500px;
+    }
+    .topic-header{
+        text-align: center;
+        color: #e8052b;
+    }
+    .article-body-box{
+        padding: 5px;
+        margin: 5px;
+        margin-top: 10px;
+        height: 250px;
+        width: 300px;
+    }
+    .article-text-box{
+        padding: 5px;
+        margin: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 250px;
+    }
+    .post-an-article{
+        text-align: center;
+        color: #e8052b;
+    }
+    .post-article-div{
+        text-align: center;
+        padding: 5px;
+        margin: 5px;
+    }
+    .post-article-button{
+        padding: 5px;
+        margin: 5px;
+        margin-top: 10px;
+    }
+    .error-page{
+        text-align: center;
+        color: #e8052b;
+    }
+    .select-sort-by{
+        text-align: center;
+        padding: 1%;
+    }
+    .select-order-by{
+        text-align: center;
+        padding: 1%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .article-img {
+        height: 30%;
+        width: 30%;
+    }
+    .article-body-box{
+        padding: 5px;
+        margin: 5px;
+        margin-top: 10px;
+        height: 250px;
+        width: 500px;
+    }
+    .user-img-homepage {
+        padding: 30px;
+        height: 15%;
+        width: 15%;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .article-img {
+        height: 22%;
+        width: 22%;
+    }
+    .article-body-box{
+        padding: 5px;
+        margin: 5px;
+        margin-top: 10px;
+        height: 250px;
+        width: 700px;
     }
 }

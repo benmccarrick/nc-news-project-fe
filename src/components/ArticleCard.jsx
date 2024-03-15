@@ -7,7 +7,7 @@ const ArticleCard = ({article}) => {
         <div className='article-card'>
             <Link className='link-style' to={`/articles/${article.article_id}`}>
             <p>Title: {article.title}</p>
-            <img className= 'article-img' src={article.article_img_url}/>
+            <img className= 'article-img' src={article.article_img_url} alt='A depiction of the article title'/>
             <p>Author: {article.author}</p>
             <p>Topic: {article.topic}</p>
             <p>Votes: {article.votes}</p>

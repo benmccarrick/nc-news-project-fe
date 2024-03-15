@@ -37,7 +37,9 @@ const ArticleList = () => {
     <Loading />
   ) : (
     <div>
+      <br></br>
       <ArticleSortFilter/>
+      <br></br>
       <OrderFilter/>
       {currentArticles.map((article) => {
         return <ArticleCard key={article.article_id} article={article} />;

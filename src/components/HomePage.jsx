@@ -22,9 +22,10 @@ const HomePage = () => {
             <h1 className='welcome-message'>Welcome to NC News</h1>
             <div id="select-user-form">
         <form>
-          <label htmlFor="select-user" className='select-user'>Select Your User To Login </label>
+          <label htmlFor="select-user" className='select-user'>Select Your User To Login: </label>
+          <br></br>
           <select id="select-user" className='select-user'onChange={handleUserChange}>
-            <option value={"Select User"} key={"Select User"}>
+            <option value={""}>
               Select User
             </option>
             {currUsers.map((user) => {
@@ -37,9 +38,12 @@ const HomePage = () => {
           </select>
         </form>
         <div>
+          <br></br>
           <p>Username: {currentUsers.username}</p>
+          <br></br>
           <p>Name: {currentUsers.name}</p>
-          <img className="user-img-homepage" src={currentUsers.avatar_url} />
+          <img className="user-img-homepage" src={currentUsers.avatar_url} alt='an avatar picked by a specific user'/>
+          <br></br>
         </div>
       </div>
         </div>

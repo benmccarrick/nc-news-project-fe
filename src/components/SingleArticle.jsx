@@ -48,11 +48,10 @@ const SingleArticle = () => {
             <p>{displayedArticle.body}</p>
             <p>Votes: {displayedArticle.votes}</p>
             <p>Total Comments: {displayedArticle.comment_count}</p>
+            <button className='up-vote' onClick={() => handleVote(1)}>↑ Up vote</button>
+            <button className='down-vote' onClick={() => handleVote(-1)}>↓ Down vote</button>
             </div>
-            <button onClick={() => handleVote(1)}>Up vote</button>
-            <button onClick={() => handleVote(-1)}>Down vote</button>
             <div className='comment-section'>
-                <p>Comments:</p>
             <Comments />
             </div>
         </article>
