@@ -37,14 +37,17 @@ const HomePage = () => {
             })}
           </select>
         </form>
-        <div>
           <br></br>
-          <p>Username: {currentUsers.username}</p>
-          <br></br>
-          <p>Name: {currentUsers.name}</p>
-          <img className="user-img-homepage" src={currentUsers.avatar_url} alt='an avatar picked by a specific user'/>
-          <br></br>
-        </div>
+          {currentUsers ? (
+            <div>
+            <p>Username: {currentUsers.username}</p>
+            <br></br>
+            <p>Name: {currentUsers.name}</p>
+            <br></br>
+            <img className="user-img-homepage" src={currentUsers.avatar_url} alt='an avatar picked by a specific user'/>
+            <br></br>
+            </div>
+          ) : null}
       </div>
         </div>
     );
