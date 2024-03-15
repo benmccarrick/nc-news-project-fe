@@ -9,25 +9,31 @@ const ArticleAdder = () => {
     const [imgUrlInput, setImgUrlInput] = useState("");
     const [topicInput, setTopicInput] = useState("");
     const [bodyInput, setBodyInput] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
+    const [feedbackMessage, setFeedbackMessage] = useState("");
+    const [loadingPostedArticle, setLoadingPostedArticle] = useState(false);
   
     const handleSubmit = (event) => {
       event.preventDefault();
+      setLoadingPostedArticle(true);
       const newArticle = {
         author: currentUsers,
         title: event.target["0"].value,
-        img_url: event.target["1"].value,
+        article_img_url: event.target["1"].value,
         topic: event.target["2"].value,
         body: event.target["3"].value,
       };
       postArticle(newArticle).then(() => {
-        setSuccessMessage(`Article successfully posted!`);
+        setFeedbackMessage(`Article successfully posted!`);
+        setLoadingPostedArticle(false);
         setTitleInput("");
         setImgUrlInput("");
         setTopicInput("");
         setBodyInput("");
+        setTimeout(() => setFeedbackMessage(null), 2000);
       }).catch(() => {
-        setSuccessMessage(`Something went wrong, article NOT posted!`);
+        setFeedbackMessage(`Something went wrong, article NOT posted!`);
+        setLoadingPostedArticle(false);
+        setTimeout(() => setFeedbackMessage(null), 2000);
       });
     };
   
@@ -45,7 +51,9 @@ const ArticleAdder = () => {
     };
 
 
-    return (
+    return loadingPostedArticle ? (
+      <p>Posting Article...</p>
+    ) : (
         <div className="post-article-div">
       <h1>Post an article!</h1>
       <form onSubmit={handleSubmit}>
@@ -58,11 +66,11 @@ const ArticleAdder = () => {
           value={titleInput}
         ></input>
         <br></br>
-        <label htmlFor="img_url">Image URL for Article:</label>
+        <label htmlFor="article_img_url">Image URL for Article:</label>
         <input
           type="url"
           required
-          id="img_url"
+          id="article_img_url"
           onChange={updateUrlInputValue}
           value={imgUrlInput}
         ></input>
@@ -87,7 +95,7 @@ const ArticleAdder = () => {
         ></input>
         <br></br>
         <button>Post Article</button>
-        <p>{successMessage}</p>
+        <p>{feedbackMessage}</p>
       </form>
     </div>
     );
