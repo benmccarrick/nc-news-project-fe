@@ -26,7 +26,7 @@ const CommentSortFilter = () => {
           className="select-sort-by"
           onChange={handleSortByChange}
         >
-          <option value={"Select Sort By"} key={"Select Sort By"}>
+          <option value={""}>
             Select Sort By
           </option>
           <option value={JSON.stringify("created_at")} key={"created_at"}>

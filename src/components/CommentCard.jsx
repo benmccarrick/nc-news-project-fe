@@ -65,8 +65,11 @@ if(err) {
       <p>Comment By: {comment.author}</p>
       <p>{comment.body}</p>
       <p>Votes: {comment.votes}</p>
+      <button className='up-vote' onClick={() => handleVote(comment.comment_id, 1)}>↑ Up vote</button>
+      <button className='down-vote' onClick={() => handleVote(comment.comment_id, -1)}>↓ Down vote</button>
+      <br></br>
       {correctUser && (
-      <button
+      <button className='delete-comment-button'
         onClick={() => {
           deleteComment(comment.comment_id);
         }}
@@ -74,8 +77,6 @@ if(err) {
         Delete Comment
       </button>
       )}
-      <button onClick={() => handleVote(comment.comment_id, 1)}>Up vote</button>
-      <button onClick={() => handleVote(comment.comment_id, -1)}>Down vote</button>
     </div>
   );
 };

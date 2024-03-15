@@ -18,7 +18,7 @@ const TopicsList = () => {
 
     return isLoading ? <Loading/> :(
         <div>
-            <h1>Topics:</h1>
+            <h1 className='topic-header'>All Topics:</h1>
             {currentTopics.map((topic) => {
                 return <TopicCard key={topic.slug} topic={topic}/>
             })}

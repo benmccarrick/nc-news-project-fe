@@ -27,8 +27,10 @@ const Comments = () => {
       <CommentAdder
         setCurrentComments={setCurrentComments}
         currentUsers={currentUsers}
-      />
+        />
+        <p>Comments:</p>
       <CommentSortFilter/>
+      <br></br>
       <OrderFilter/>
       {currentComments.map((comment) => {
         return (

@@ -38,16 +38,19 @@ const CommentAdder = ({ setCurrentComments, currentUsers }) => {
     <p>Posting Comment...</p>
   ) : (
     <form className="CommentAdder" onSubmit={handleSubmit}>
-      <label htmlFor="newComment">Add a Comment: </label>
-      <input
+      <label htmlFor="newComment" className="add-a-comment">Add a Comment: </label>
+      <br></br>
+      <textarea
         id="newComment"
+        className="comment-box"
         type="text"
         multiline="true"
         required
         value={newComment}
         onChange={(event) => setNewComment(event.target.value)}
-      ></input>
-      <button type="submit">Post New Comment</button>
+      ></textarea>
+      <br></br>
+      <button type="submit" className="post-comment-button">Post New Comment</button>
       <p>{feedbackMessage}</p>
     </form>
   );
