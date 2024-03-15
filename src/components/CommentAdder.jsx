@@ -7,11 +7,11 @@ const CommentAdder = ({ setCurrentComments, currentUsers }) => {
   const [newComment, setNewComment] = useState("");
   const [feedbackMessage, setFeedbackMessage] = useState(null);
   const [loadingPostedComment, setLoadingPostedComment] = useState(false);
-    
+   
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoadingPostedComment(true);
-    const postNewComment = { username: currentUsers, body: newComment };
+    const postNewComment = { username: currentUsers.username, body: newComment };
     postCommentByArticleId(article_id, postNewComment)
       .then((newCommentFromApi) => {
         setNewComment("");

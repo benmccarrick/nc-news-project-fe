@@ -4,18 +4,13 @@ import Header from './components/Header'
 import HomePage from './components/HomePage'
 import ArticleList from './components/ArticleList'
 import SingleArticle from './components/SingleArticle'
-import { UsersContext } from './Contexts/UsersContext'
-import { useContext, useEffect } from 'react'
+// import { UsersContext } from './Contexts/UsersContext'
+// import { useContext, useEffect } from 'react'
 import TopicsList from './components/TopicsList'
 import ErrorPage from './components/ErrorPage'
 import ArticleAdder from './components/ArticleAdder'
 
 const App = () => {
-  const { setCurrentUsers } = useContext(UsersContext);
-
-  useEffect(() => {
-    setCurrentUsers("grumpy19");
-  }, []);
 
   return (
     <div>

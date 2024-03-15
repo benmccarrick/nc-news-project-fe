@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { deleteCommentByCommentId, patchCommentByCommentId } from "../utils";
-import { useParams } from "react-router-dom";
 
 const CommentCard = ({ comment, currentUsers, currentComments, setCurrentComments }) => {
   const [feedbackMessage, setFeedbackMessage] = useState(null);
   const [loadingDeletedMessage, setLoadingDeletedMessage] = useState(false);
-  const correctUser = comment.author === currentUsers;
+  const correctUser = comment.author === currentUsers.username;
   const [err, setErr] = useState(null);
 
   const deleteComment = (comment_id) => {
