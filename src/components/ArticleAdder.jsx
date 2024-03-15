@@ -16,7 +16,7 @@ const ArticleAdder = () => {
     event.preventDefault();
     setLoadingPostedArticle(true);
     const newArticle = {
-      author: currentUsers,
+      author: currentUsers.username,
       title: event.target["0"].value,
       article_img_url: event.target["1"].value,
       topic: event.target["2"].value,
