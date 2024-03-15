@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div>
             <Link to="/">
-        <h1 className='header'><img className="nc-logo" src='images/nc-logo.png' alt='the northcoders logo, a red circumflex symbol'/>  NC NEWS  <img className="nc-logo" src='images/nc-logo.png'alt='the northcoders logo, a red circumflex symbol'/></h1>
+        <h1 className='header'><img className="nc-logo" src='https://www.marketscreener.com/static/private-issuer-squared-BEI85.png' alt='the northcoders logo, a red circumflex symbol'/> {" "} NC NEWS {" "} <img className="nc-logo" src='https://www.marketscreener.com/static/private-issuer-squared-BEI85.png'alt='the northcoders logo, a red circumflex symbol'/></h1>
             </Link>
         <nav className='nav-bar'>
             <Link className='nav-bar-link' to="/">Home</Link>

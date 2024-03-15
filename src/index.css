@@ -1,3 +1,6 @@
+html, body {
+    overflow-x: hidden;
+}
 @media only screen and (min-width: 320px) {
     .home-page{
         text-align: center;    
@@ -18,15 +21,14 @@
     
     .nav-bar{
         text-align: center;
-        padding: 10px;
-        margin: 10px;
+        padding: 2px;
+        margin: 2px;
         border: 2px solid rgb(240, 6, 6);
         border-radius: 10%;
-        min-width: max-content;
     }
 
     .nav-bar-link{
-        margin: 30px;
+        margin: 10px;
         color: #000000;
     }
     
@@ -113,7 +115,7 @@
         margin: 5px;
         margin-top: 10px;
         height: 40px;
-        width: 500px;
+        width: 270px;
     }
     .topic-header{
         text-align: center;
@@ -124,7 +126,7 @@
         margin: 5px;
         margin-top: 10px;
         height: 250px;
-        width: 300px;
+        width: 275px;
     }
     .article-text-box{
         padding: 5px;
@@ -177,6 +179,10 @@
         height: 15%;
         width: 15%;
     }
+    .nc-logo{
+        height: 2%;
+        width: 2%;
+    }
 }
 @media only screen and (min-width: 1024px) {
     .article-img {
@@ -189,5 +195,9 @@
         margin-top: 10px;
         height: 250px;
         width: 700px;
+    }
+    .nc-logo{
+        height: 1%;
+        width: 1%;
     }
 }
