@@ -42,7 +42,7 @@ const ArticleList = () => {
       <br></br>
       <OrderFilter/>
       {currentArticles.map((article) => {
-        return <ArticleCard key={article.article_id} article={article} />;
+        return <ArticleCard key={article.article_id} article={article} currentArticles={currentArticles} setCurrentArticles={setCurrentArticles}/>;
       })}
     </div>
   );

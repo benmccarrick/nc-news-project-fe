@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Loading from './Loading';
 import { getTopics } from '../utils';
 import TopicCard from './TopicCard';
+import TopicAdder from './TopicAdder';
 
 const TopicsList = () => {
 
@@ -22,6 +23,7 @@ const TopicsList = () => {
             {currentTopics.map((topic) => {
                 return <TopicCard key={topic.slug} topic={topic}/>
             })}
+            <TopicAdder setCurrentTopics={setCurrentTopics}/>
         </div>
     );
 };

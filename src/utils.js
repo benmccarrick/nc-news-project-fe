@@ -69,3 +69,13 @@ export const postArticle = (newArticle) => {
     return data.articles;
   });
 };
+
+export const deleteArticleByArticleId = (articleId) => {
+  return ncNewsApi.delete(`/api/articles/${articleId}`);
+};
+
+export const postTopic = (newTopic) => {
+  return ncNewsApi.post("/api/topics", newTopic).then(({ data }) => {
+    return data.topic;
+  });
+};
