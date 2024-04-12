@@ -22,7 +22,7 @@ const Comments = () => {
     });
   }, [sortByQuery, orderQuery]);
 
-  return (
+  return (currentComments.length) ? (
     <div>
       <CommentAdder
         setCurrentComments={setCurrentComments}
@@ -32,6 +32,7 @@ const Comments = () => {
       <CommentSortFilter/>
       <br></br>
       <OrderFilter/>
+      
       {currentComments.map((comment) => {
         return (
           <CommentCard
@@ -44,7 +45,16 @@ const Comments = () => {
         );
       })}
     </div>
-  );
+  ) : ( 
+  <div>
+    <CommentAdder
+      setCurrentComments={setCurrentComments}
+      currentUsers={currentUsers}
+      />
+    <br></br>
+    <p>No comments on this article</p>
+    </div>
+    );
 };
 
 export default Comments;

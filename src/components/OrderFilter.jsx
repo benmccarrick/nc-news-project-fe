@@ -26,7 +26,7 @@ const OrderFilter = () => {
           className="select-order-by"
           onChange={handleOrderByChange}
         >
-          <option value={""}>
+          <option value={""} selected disabled hidden defaultValue={"Select Order By"}>
             Select Order By
           </option>
           <option value={JSON.stringify("ASC")} key={"ASC"}>

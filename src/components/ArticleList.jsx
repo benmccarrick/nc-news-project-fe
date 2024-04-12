@@ -33,6 +33,10 @@ const ArticleList = () => {
     return <ErrorPage message={"topic does not exist"} />;
   }
 
+  if (!currentArticles.length) {
+    return <p>No Articles available</p>
+  }
+
   return isLoading ? (
     <Loading />
   ) : (

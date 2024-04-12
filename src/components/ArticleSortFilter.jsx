@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 const ArticleSortFilter = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
+    
 
     const setSortBy = (sort_by) => {
         const newParams = new URLSearchParams(searchParams);
@@ -26,7 +27,7 @@ const ArticleSortFilter = () => {
           className="select-sort-by"
           onChange={handleSortByChange}
         >
-          <option value={""}>
+          <option value={""} selected disabled hidden defaultValue={"Select Sort By"}>
             Select Sort By
           </option>
           <option value={JSON.stringify("created_at")} key={"created_at"}>
