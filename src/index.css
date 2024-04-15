@@ -122,6 +122,16 @@ html, body {
         margin-bottom: 10px;
         color: #931c1c;
     }
+    .homepage-username{
+        color: #931c1c; 
+    }
+    .no-articles{
+        color: #931c1c; 
+    }
+    .voting-notification{
+        font-weight: bolder;
+        color: #fff151;
+    }
     .comment-box{
         padding: 5px;
         margin: 5px;

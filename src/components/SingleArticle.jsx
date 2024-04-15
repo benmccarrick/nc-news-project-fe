@@ -53,7 +53,7 @@ const SingleArticle = () => {
             <p>{displayedArticle.body}</p>
             <p>Author: {displayedArticle.author}</p>
             <p>Topic: {displayedArticle.topic}</p>
-            <p>Votes: {displayedArticle.votes}</p><p>{notification}</p>
+            <p>Votes: {displayedArticle.votes}</p><p className="voting-notification">{notification}</p>
             <p>Total Comments: {displayedArticle.comment_count}</p>
             <button className='up-vote' onClick={() =>
                 hasVoted === 1

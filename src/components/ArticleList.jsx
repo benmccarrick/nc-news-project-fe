@@ -34,7 +34,7 @@ const ArticleList = () => {
   }
 
   if (!currentArticles.length) {
-    return <p>No Articles available</p>
+    return <p className="no-articles">No Articles available</p>
   }
 
   return isLoading ? (

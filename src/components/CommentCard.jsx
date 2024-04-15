@@ -70,7 +70,7 @@ if(err) {
     <div className="comment-card">
       <p>{comment.body}</p>
       <p>User: {comment.author}</p>
-      <p>Votes: {comment.votes}</p><p>{notification}</p>
+      <p>Votes: {comment.votes}</p><p className="voting-notification">{notification}</p>
       <button className='up-vote' onClick={() => hasVoted === 1
                   ? setNotification("You have already voted")
                   : handleVote(comment.comment_id, 1)}>↑ Up vote</button>

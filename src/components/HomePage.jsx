@@ -40,9 +40,9 @@ const HomePage = () => {
           <br></br>
           {currentUsers ? (
             <div>
-            <p>Username: {currentUsers.username}</p>
+            <p className='homepage-username'>Username: {currentUsers.username}</p>
             <br></br>
-            <p>Name: {currentUsers.name}</p>
+            <p className='homepage-username'>Name: {currentUsers.name}</p>
             <br></br>
             <img className="user-img-homepage" src={currentUsers.avatar_url} alt='an avatar picked by a specific user'/>
             <br></br>
