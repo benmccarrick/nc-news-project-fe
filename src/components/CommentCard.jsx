@@ -4,6 +4,8 @@ import { deleteCommentByCommentId, patchCommentByCommentId } from "../utils";
 const CommentCard = ({ comment, currentUsers, currentComments, setCurrentComments }) => {
   const [feedbackMessage, setFeedbackMessage] = useState(null);
   const [loadingDeletedMessage, setLoadingDeletedMessage] = useState(false);
+  const [hasVoted, setHasVoted] = useState(0);
+  const [notification, setNotification] = useState(null);
   const correctUser = comment.author === currentUsers.username;
   const [err, setErr] = useState(null);
 
@@ -37,6 +39,11 @@ const CommentCard = ({ comment, currentUsers, currentComments, setCurrentComment
         return updatedComments;
     });
     setErr(null);
+    setHasVoted((prevVote) => {
+      const newVote = prevVote + voteChange;
+      setNotification(newVote !== 0 ? "Thanks for voting!" : null);
+      return newVote;
+    });
     patchCommentByCommentId(comment_id, {inc_votes: voteChange}).catch((err) => {
         setCurrentComments((currComments) => {
           const updatedComments = currComments.map((currComment) => {
@@ -61,11 +68,15 @@ if(err) {
 
   return feedbackMessage ? <p>{feedbackMessage}</p> : (
     <div className="comment-card">
-      <p>Comment By: {comment.author}</p>
       <p>{comment.body}</p>
-      <p>Votes: {comment.votes}</p>
-      <button className='up-vote' onClick={() => handleVote(comment.comment_id, 1)}>↑ Up vote</button>
-      <button className='down-vote' onClick={() => handleVote(comment.comment_id, -1)}>↓ Down vote</button>
+      <p>User: {comment.author}</p>
+      <p>Votes: {comment.votes}</p><p>{notification}</p>
+      <button className='up-vote' onClick={() => hasVoted === 1
+                  ? setNotification("You have already voted")
+                  : handleVote(comment.comment_id, 1)}>↑ Up vote</button>
+      <button className='down-vote' onClick={() => hasVoted === -1
+                  ? setNotification("You have already voted")
+                  : handleVote(comment.comment_id, -1)}>↓ Down vote</button>
       <br></br>
       {correctUser && (
       <button className='delete-comment-button'

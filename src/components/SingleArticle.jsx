@@ -10,6 +10,8 @@ const SingleArticle = () => {
     const {article_id} = useParams();
     const [displayedArticle, setDisplayedArticle] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [hasVoted, setHasVoted] = useState(0);
+    const [notification, setNotification] = useState(null);
     const [err, setErr] = useState(null);
 
     useEffect(() => {
@@ -27,6 +29,11 @@ const SingleArticle = () => {
             return {...article, votes: article.votes + voteChange};
         });
         setErr(null);
+        setHasVoted((prevVote) => {
+            const newVote = prevVote + voteChange;
+            setNotification(newVote !== 0 ? "Thanks for voting!" : null);
+            return newVote;
+          });
         patchArticleByArticleId(article_id, {inc_votes: voteChange}).catch((err) => {
             setDisplayedArticle((article) => {
                 return {...article, votes: article.votes - voteChange};
@@ -43,13 +50,21 @@ const SingleArticle = () => {
         <article>
             <div className='single-article'>
             <h1>Title: {displayedArticle.title}</h1>
+            <p>{displayedArticle.body}</p>
             <p>Author: {displayedArticle.author}</p>
             <p>Topic: {displayedArticle.topic}</p>
-            <p>{displayedArticle.body}</p>
-            <p>Votes: {displayedArticle.votes}</p>
+            <p>Votes: {displayedArticle.votes}</p><p>{notification}</p>
             <p>Total Comments: {displayedArticle.comment_count}</p>
-            <button className='up-vote' onClick={() => handleVote(1)}>↑ Up vote</button>
-            <button className='down-vote' onClick={() => handleVote(-1)}>↓ Down vote</button>
+            <button className='up-vote' onClick={() =>
+                hasVoted === 1
+                  ? setNotification("You have already voted")
+                  : handleVote(1)
+              }>↑ Up vote</button>
+            <button className='down-vote' onClick={() =>
+                hasVoted === -1
+                  ? setNotification("You have already voted")
+                  : handleVote(-1)
+              }>↓ Down vote</button>
             </div>
             <div className='comment-section'>
             <Comments />

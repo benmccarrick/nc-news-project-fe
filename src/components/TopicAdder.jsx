@@ -46,7 +46,7 @@ const TopicAdder = ({setCurrentTopics}) => {
         <p>Adding Topic...</p>
       ) : (
         <form className="TopicAdder" onSubmit={handleSubmit}>
-          <label htmlFor="article_img_url">Topic: </label>
+          <label htmlFor="article_img_url" className="form-labels">Topic: </label>
         <br></br>
         <input
           type="text"
@@ -57,7 +57,7 @@ const TopicAdder = ({setCurrentTopics}) => {
           value={topicInput}
         ></input>
         <br></br>
-        <label htmlFor="topic">Description: </label>
+        <label htmlFor="topic" className="form-labels">Description: </label>
         <br></br>
         <input
           type="text"

@@ -28,7 +28,7 @@ const Comments = () => {
         setCurrentComments={setCurrentComments}
         currentUsers={currentUsers}
         />
-        <p>Comments:</p>
+        <p className="comment-text">Comments:</p>
       <CommentSortFilter/>
       <br></br>
       <OrderFilter/>
@@ -52,7 +52,7 @@ const Comments = () => {
       currentUsers={currentUsers}
       />
     <br></br>
-    <p>No comments on this article</p>
+    <p className="comment-text">No comments on this article</p>
     </div>
     );
 };

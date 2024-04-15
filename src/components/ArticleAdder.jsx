@@ -58,7 +58,7 @@ const ArticleAdder = () => {
     <div className="post-article-div">
       <h1 className="post-an-article">Post an article!</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title: </label>
+        <label htmlFor="title" className="form-labels">Title: </label>
         <br></br>
         <input
           type="text"
@@ -69,7 +69,7 @@ const ArticleAdder = () => {
           value={titleInput}
         ></input>
         <br></br>
-        <label htmlFor="article_img_url">Image URL for Article: </label>
+        <label htmlFor="article_img_url" className="form-labels">Image URL for Article: </label>
         <br></br>
         <input
           type="url"
@@ -80,7 +80,7 @@ const ArticleAdder = () => {
           value={imgUrlInput}
         ></input>
         <br></br>
-        <label htmlFor="topic">Topic: </label>
+        <label htmlFor="topic" className="form-labels">Topic: </label>
         <br></br>
         <input
           type="text"
@@ -92,7 +92,7 @@ const ArticleAdder = () => {
           value={topicInput}
         ></input>
         <br></br>
-        <label htmlFor="body">Body of text: </label>
+        <label htmlFor="body" className="form-labels">Body of text: </label>
         <br></br>
         <textarea
           type="text"
