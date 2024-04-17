@@ -40,6 +40,7 @@ const ArticleCard = ({article, currentArticles, setCurrentArticles}) => {
             <img className= 'article-img' src={article.article_img_url} alt='A depiction of the article title'/>
             <p>Author: {article.author}</p>
             <p>Topic: {article.topic}</p>
+            <p>Posted at: {article.created_at.substring(11,16)}{"   "}{article.created_at.substring(0, 10)}</p>
             <p>Votes: {article.votes}</p>
             <p>Total Comments: {article.comment_count}</p>
             <br></br>
