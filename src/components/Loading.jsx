@@ -12,6 +12,7 @@ const Loading = () => {
           height="80"
           width="80"
           color="#4fa94d"
+          barColor="red"
           ariaLabel="progress-bar-loading"
           wrapperStyle={{}}
           wrapperClass=""

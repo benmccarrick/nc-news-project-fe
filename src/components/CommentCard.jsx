@@ -70,6 +70,7 @@ if(err) {
     <div className="comment-card">
       <p>{comment.body}</p>
       <p>User: {comment.author}</p>
+      <p>Posted at: {comment.created_at.substring(11,16)}{"   "}{comment.created_at.substring(0, 10)}</p>
       <p>Votes: {comment.votes}</p><p className="voting-notification">{notification}</p>
       <button className='up-vote' onClick={() => hasVoted === 1
                   ? setNotification("You have already voted")
